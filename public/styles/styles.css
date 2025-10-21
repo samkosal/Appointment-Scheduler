@@ -1,0 +1,5 @@
+/* error message */
+.error {
+    color: darkred;
+    display: none;
+}
