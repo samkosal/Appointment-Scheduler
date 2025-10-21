@@ -10,6 +10,8 @@ const app = express();
 // Enable static files serving
 app.use(express.static("public"));
 
+app.use(express.urlencoded({extended: true}));
+
 // Define the port number where our server will listen
 const PORT = 3003;
 
@@ -37,6 +39,10 @@ app.post('/submit-order', (req, res) => {
     // send user to confirmation page
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
 })
+// admin link: http://localhost:3003/admin
+app.get('/admin', (req, res) => {
+    res.send(orders);
+});
 
 // start the server and make it listen on the port
 // specified above
